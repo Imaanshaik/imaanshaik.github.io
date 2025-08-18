@@ -14,7 +14,16 @@ a{color:var(--acc);text-decoration:none}
 a:hover{opacity:.85}
 .container{max-width:980px;margin:0 auto;padding:24px}
 .header{display:flex;align-items:center;gap:18px;padding:24px 0}
-.avatar{width:72px;height:72px;border-radius:16px;background:#222 display:block;overflow:hidden;border:1px solid #1c1f26}
+.avatar {
+  width:72px;
+  height:72px;
+  border-radius:16px;
+  background:#222;
+  display:block;
+  overflow:hidden;
+  border:1px solid #1c1f26;
+}
+
 .avatar--circle{border-radius:50%}
 .title{font-size:28px;font-weight:800;margin:0}
 .subtitle{color:var(--muted);margin:2px 0 0 0}
