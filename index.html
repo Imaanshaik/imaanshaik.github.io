@@ -1,178 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imaan Shaik — Mechatronics Engineering Student</title>
-  <meta name="description" content="Portfolio of Imaan Shaik — Mechatronics Engineering Student at UCT. Projects, experience, skills, and contact."/>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <meta property="og:title" content="Imaan Shaik — Portfolio"/>
-  <meta property="og:description" content="Mechatronics Engineering Student at UCT"/>
-  <meta property="og:type" content="website"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0d10;
+      color: #e6f1ff;
+      line-height: 1.6;
+    }
+    header {
+      background: #12151a;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0;
+      color: #8892b0;
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #64ffda;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #12151a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    section h2 {
+      border-bottom: 1px solid #1b2029;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .chips span {
+      display: inline-block;
+      background: #1c222b;
+      border: 1px solid #22303f;
+      border-radius: 999px;
+      padding: 5px 10px;
+      margin: 4px;
+      font-size: 14px;
+      color: #cfe7ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #8892b0;
+      margin-top: 40px;
+    }
+    a.btn {
+      display: inline-block;
+      margin: 10px 5px 0 0;
+      padding: 10px 14px;
+      border: 1px solid #64ffda;
+      border-radius: 8px;
+      color: #64ffda;
+      text-decoration: none;
+    }
+    a.btn:hover {
+      background: rgba(100,255,218,0.1);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <img class="avatar avatar--circle" src="assets/favicon.svg" alt="IS logo" />
-      <div>
-        <h1 class="title">Imaan Shaik</h1>
-        <p class="subtitle">Mechatronics Engineering Student • University of Cape Town</p>
-      </div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <header>
+    <h1>Imaan Shaik</h1>
+    <p>Mechatronics Engineering Student • University of Cape Town</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="section hero" id="about">
-      <h2>About</h2>
-      <p>Motivated and ambitious mechatronics engineering student with a passion for robotics, automation, and innovation. Strong problem‑solving ability, fast learning, and clear communication. I enjoy building useful things and working in collaborative, engineering‑first teams.</p>
-      <div class="links">
-        <a class="btn" href="assets/ImaanShaik_CV_2025.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn" href="https://linkedin.com/in/imaan-shaik" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="badge">Cape Town, South Africa</span>
-      </div>
-    </section>
+  <section id="about">
+    <h2>About</h2>
+    <p>Motivated and ambitious mechatronics engineering student with a passion for robotics, automation, and innovation. Strong problem-solving ability, fast learning, and clear communication. I enjoy building useful things and working in collaborative, engineering-first teams.</p>
+    <a class="btn" href="mailto:imaanshaik6@gmail.com">Email Me</a>
+    <a class="btn" href="https://linkedin.com/in/imaan-shaik" target="_blank">LinkedIn</a>
+  </section>
 
-    <section class="section" id="experience">
-      <h2>Experience</h2>
-      <div class="grid">
-        <div class="item">
-          <div class="card-title">
-            <h3>Intern — ALC Corp</h3>
-            <span class="meta">Jan–Feb 2025 • Ottery, Cape Town</span>
-          </div>
-          <ul class="clean">
-            <li>Operated and maintained hot tack testing machines for polymer films.</li>
-            <li>Diagnosed and fixed load‑cell calibration drift; designed a custom calibration tool.</li>
-            <li>Assisted with Delta PLC programming in Ladder Logic.</li>
-            <li>Hands‑on industrial automation and electro‑mechanical integration.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Student Volunteer — IEEE GLOBECOM</h3>
-            <span class="meta">Dec 2024 • CTICC, Cape Town</span>
-          </div>
-          <ul class="clean">
-            <li>Supported registration and technical sessions across symposiums and tutorials.</li>
-            <li>Exposure to a large‑scale international engineering conference.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Intern — LIQID Medical</h3>
-            <span class="meta">Nov–Dec 2023 • Foreshore, Cape Town</span>
-          </div>
-          <ul class="clean">
-            <li>Designed a clasp mechanism for tensile testing of ocular implants (glaucoma treatment).</li>
-            <li>3D modelling & simulation in Autodesk Inventor; prototype iteration with engineering team.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Vacation Work — AIZATRON</h3>
-            <span class="meta">Jan 2022 • Mowbray, Cape Town</span>
-          </div>
-          <ul class="clean">
-            <li>Breadboard circuit design and LTSpice analysis/simulation.</li>
-            <li>Exposure to design processes; cultivated debugging and detail orientation.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><b>Intern — ALC Corp</b> (Jan–Feb 2025, Ottery, Cape Town)  
+        Operated hot tack testing machines, designed calibration tool, assisted with PLC programming.</li>
+      <li><b>Student Volunteer — IEEE GLOBECOM</b> (Dec 2024, Cape Town)  
+        Supported international conference logistics and technical sessions.</li>
+      <li><b>Intern — LIQID Medical</b> (Nov–Dec 2023, Foreshore, Cape Town)  
+        Designed clasp mechanism for ocular implant tensile testing, 3D CAD prototyping.</li>
+      <li><b>Vacation Work — AIZATRON</b> (Jan 2022, Mowbray, Cape Town)  
+        Circuit design, LTSpice simulation, teamwork exposure.</li>
+    </ul>
+  </section>
 
-    <section class="section" id="education">
-      <h2>Education</h2>
-      <div class="grid grid-cols-2">
-        <div class="item">
-          <div class="card-title">
-            <h3>University of Cape Town — BSc(Eng) Mechatronics</h3>
-            <span class="meta">2021–Present</span>
-          </div>
-          <div class="kv">
-            <div>Expected Graduation</div><div>March 2026</div>
-            <div>Selected Courses</div><div>Embedded Systems; Process Control; Energy Conversion; Machine Learning</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Rustenburg Girls’ High School</h3>
-            <span class="meta">2016–2020</span>
-          </div>
-          <div class="kv">
-            <div>Qualification</div><div>National Senior Certificate</div>
-            <div>Achievements</div><div>7 Distinctions</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><b>University of Cape Town</b> — BSc(Eng) Mechatronics (2021–Present)  
+        Expected Graduation: March 2026. Courses: Embedded Systems, Process Control, Energy Conversion, Machine Learning.</li>
+      <li><b>Rustenburg Girls’ High School</b> (2016–2020)  
+        National Senior Certificate with 7 distinctions.</li>
+    </ul>
+  </section>
 
-    <section class="section" id="skills">
-      <h2>Skills</h2>
-      <div class="chips">
-        <span class="chip">C for Embedded Systems</span>
-        <span class="chip">MATLAB / Simulink</span>
-        <span class="chip">Python</span>
-        <span class="chip">Java</span>
-        <span class="chip">Assembly</span>
-        <span class="chip">SolidWorks</span>
-        <span class="chip">Autodesk Inventor</span>
-        <span class="chip">3D Printing</span>
-        <span class="chip">PCB Design & Debug</span>
-        <span class="chip">PLC (IEC 61131)</span>
-        <span class="chip">Controller Modelling</span>
-      </div>
-    </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="chips">
+      <span>C for Embedded Systems</span><span>MATLAB / Simulink</span><span>Python</span>
+      <span>Java</span><span>Assembly</span><span>SolidWorks</span><span>Autodesk Inventor</span>
+      <span>3D Printing</span><span>PCB Design</span><span>PLC (IEC 61131)</span><span>Controller Modelling</span>
+    </div>
+  </section>
 
-    <section class="section" id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="item">
-          <div class="card-title">
-            <h3>Grid‑Forming Converter Simulation</h3>
-            <span class="meta">MATLAB / Simulink</span>
-          </div>
-          <p class="small">Exploring AC‑side filter topologies (L, LC, LCL) and their effect on dynamic response and stability in grid‑forming vs grid‑following control.</p>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Algorithmic Trading Bot</h3>
-            <span class="meta">Python</span>
-          </div>
-          <p class="small">Research and prototyping of automated trading strategies, backtesting, and risk controls.</p>
-        </div>
-        <div class="item">
-          <div class="card-title">
-            <h3>Control Panel & PLC Work</h3>
-            <span class="meta">Industrial Automation</span>
-          </div>
-          <p class="small">Hands‑on control panel build, wiring, and PLC logic for small automation tasks.</p>
-        </div>
-      </div>
-    </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><b>Grid-Forming Converter Simulation</b> — MATLAB/Simulink project on AC-side filters.</li>
+      <li><b>Algorithmic Trading Bot</b> — Python bot for strategy backtesting and execution.</li>
+      <li><b>Control Panel & PLC Work</b> — Industrial automation tasks with PLC logic and panel wiring.</li>
+    </ul>
+  </section>
 
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <div class="kv">
-        <div>Email</div><div><a href="mailto:imaanshaik6@gmail.com">imaanshaik6@gmail.com</a></div>
-        <div>Phone</div><div><a href="tel:+27612341006">+27 61 234 1006</a></div>
-        <div>Location</div><div>Newlands, Cape Town</div>
-        <div>LinkedIn</div><div><a href="https://linkedin.com/in/imaan-shaik" target="_blank" rel="noopener">linkedin.com/in/imaan-shaik</a></div>
-      </div>
-      <hr class="sep" />
-      <p class="small">Tip: Host this as <code class="inline">&lt;username&gt;.github.io</code> or any public repo via GitHub Pages.</p>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:imaanshaik6@gmail.com">imaanshaik6@gmail.com</a></p>
+    <p>Phone: <a href="tel:+27612341006">+27 61 234 1006</a></p>
+    <p>Location: Newlands, Cape Town</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/imaan-shaik" target="_blank">linkedin.com/in/imaan-shaik</a></p>
+  </section>
 
-    <footer class="footer">
-      <p>&copy; <span id="year"></span> Imaan Shaik. All rights reserved.</p>
-    </footer>
-  </div>
-  <script src="script.js"></script>
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Imaan Shaik. All rights reserved.</p>
+  </footer>
 </body>
 </html>
