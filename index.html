@@ -25,6 +25,14 @@
       margin: 5px 0 0;
       color: #8892b0;
     }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 3px solid #64ffda;
+      object-fit: cover;
+    }
     nav {
       margin-top: 15px;
     }
@@ -48,6 +56,10 @@
     }
     ul {
       padding-left: 20px;
+      list-style: none;
+    }
+    li {
+      margin-bottom: 20px;
     }
     .chips span {
       display: inline-block;
@@ -77,10 +89,23 @@
     a.btn:hover {
       background: rgba(100,255,218,0.1);
     }
+    .exp-with-img {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .exp-with-img img {
+      max-width: 200px;
+      border-radius: 10px;
+      border: 2px solid #22303f;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
   <header>
+    <img src="profile.jpg" alt="Profile Photo" />
     <h1>Imaan Shaik</h1>
     <p>Mechatronics Engineering Student • University of Cape Town</p>
     <nav>
@@ -102,12 +127,21 @@
   <section id="experience">
     <h2>Experience</h2>
     <ul>
-      <li><b>Industry Training — Maverick International</b> (30 June – 12 July 2025, Cape Town)  
-        Wired a 3-phase, 480V, 60kVA, 60Hz control panel using Rockwell (Allen-Bradley) hardware including PLC, power supply, solid-state relays, and safety circuit. Panel was tested and passed all QC checks.  
-        <i>Supervisor: Kewan Fay (Director)</i>
+      <li class="exp-with-img">
+        <div>
+          <b>Industry Training — Maverick International</b> (30 June – 12 July 2025, Cape Town)  
+          Wired a 3-phase, 480V, 60kVA, 60Hz control panel using Rockwell (Allen-Bradley) hardware including PLC, power supply, solid-state relays, and safety circuit. Panel was tested and passed all QC checks.  
+          <i>Supervisor: Kewan Fay (Director)</i>
+        </div>
+        <img src="maverick.jpg" alt="Maverick Training" />
       </li>
-      <li><b>Intern — ALC Corp</b> (Jan–Feb 2025, Ottery, Cape Town)  
-        Operated hot tack testing machines, designed calibration tool, assisted with PLC programming.</li>
+      <li class="exp-with-img">
+        <div>
+          <b>Intern — ALC Corp</b> (Jan–Feb 2025, Ottery, Cape Town)  
+          Operated hot tack testing machines, designed calibration tool, assisted with PLC programming.
+        </div>
+        <img src="alc.jpg" alt="ALC Internship" />
+      </li>
       <li><b>Student Volunteer — IEEE GLOBECOM</b> (Dec 2024, Cape Town)  
         Supported international conference logistics and technical sessions.</li>
       <li><b>Intern — LIQID Medical</b> (Nov–Dec 2023, Foreshore, Cape Town)  
