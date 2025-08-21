@@ -6,81 +6,56 @@
   <title>Imaan Shaik — Mechatronics | Portfolio</title>
   <meta name="description" content="The engineering e-portfolio of Imaan Shaik: projects, artefacts, experience, skills, and interests." />
   <style>
-    /* ====== Brand (Pink + Navy) ====== */
     :root{
       --navy-900:#0a0f1f;
       --navy-800:#111830;
       --navy-700:#141827;
-      --navy-600:#1b2548;
       --ink:#c9cedd;
       --muted:#aab0c2;
       --pink:#ff4da6;
-      --pink-2:#ff8ebc;
       --ring: rgba(255,77,166,.25);
       --card: #141827;
       --chip:#1e294f;
       --chip-br:#2b3560;
-      --white:#fff;
     }
-    /* Reset + Base */
     *{box-sizing:border-box}
     html,body{margin:0}
     body{
       font: 15.5px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:#ffe6f7; background:var(--navy-900);
-      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     a{color:var(--pink); text-decoration:none}
     a:hover{opacity:.92}
     img{max-width:100%; height:auto; display:block}
-
-    /* Layout */
     .container{max-width:1000px;margin:0 auto;padding:22px}
     section{background:var(--card); border:1px solid #222a52; border-radius:14px; padding:22px; margin:24px 0; box-shadow:0 6px 24px var(--ring)}
     section h2{margin:0 0 10px; color:var(--pink); font-size:22px}
     .sub{color:var(--muted); margin-top:-2px}
-
-    /* Header / Nav */
     .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--navy-800),rgba(17,24,48,.6)); border-bottom:1px solid #1c2446; backdrop-filter:blur(6px)}
     .brand{display:flex;align-items:center;gap:14px}
     .pfp{width:72px;height:72px;border-radius:50%;border:3px solid var(--pink);object-fit:cover}
     .title{margin:0;color:var(--pink);font-weight:800;font-size:26px}
-    .tag{margin:0;color:var(--ink)}
+    .tag{margin:0;color:#c9cedd}
     nav.nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     nav.nav a{padding:8px 12px;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;color:#f8eaf3;font-weight:600}
-
     .flex{display:flex;gap:16px;flex-wrap:wrap}
     .grid{display:grid;gap:14px}
     .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:860px){.cols-2{grid-template-columns:1fr}}
-
-    /* Buttons / Chips */
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--pink);color:var(--pink)}
     .btn:hover{background:rgba(255,77,166,.12)}
     .chip{display:inline-block;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;padding:6px 10px;margin:4px;color:#f7f0f5}
-
-    /* Cards */
     .card{background:#0f1632;border:1px solid #222a52;border-radius:12px;padding:14px}
     .card h3{margin:0 0 6px;font-size:18px;color:#ffd3ea}
     .meta{color:var(--muted);font-size:13.5px}
     .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-
-    /* Project gallery pics beside text */
     .proj{display:grid;grid-template-columns:180px 1fr;gap:14px;align-items:start}
     @media (max-width:720px){.proj{grid-template-columns:1fr}}
     .proj img{border-radius:10px;border:2px solid #24315f}
-
-    /* Experience cards with picture on the right */
     .exp{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
     .exp img{max-width:220px;border-radius:10px;border:2px solid #24315f}
-
-    /* Interests grid */
     .pill-grid{display:flex;flex-wrap:wrap;gap:8px}
-
-    /* Footer */
     footer{color:var(--muted);text-align:center;padding:28px 0}
-
-    /* Back-to-top */
     #topBtn{position:fixed;right:16px;bottom:16px;border-radius:999px;border:1px solid var(--pink);background:var(--navy-800);color:var(--pink);padding:10px 12px;cursor:pointer;display:none}
   </style>
 </head>
@@ -89,7 +64,6 @@
   <div class="topbar">
     <div class="container flex">
       <div class="brand">
-        <!-- Use your repo's profile.jpg -->
         <img class="pfp" src="profile.jpg" alt="Imaan Shaik profile photo">
         <div>
           <h1 class="title">Imaan Shaik</h1>
@@ -100,7 +74,6 @@
         <a href="#about">About</a>
         <a href="#highlights">Highlights</a>
         <a href="#projects">Projects</a>
-        <a href="#artefacts">Artefacts</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#interests">Interests</a>
@@ -118,28 +91,21 @@
       <div class="flex">
         <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
         <a class="btn" href="mailto:imaanshaik6@gmail.com">Email</a>
-        <a class="btn" href="https://linkedin.com/in/imaan-shaik" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://linkedin.com/in/imaan-shaik" target="_blank">LinkedIn</a>
       </div>
-      <p class="meta">Tip: upload your CV as <code>cv.pdf</code> to the repo root to enable the button.</p>
     </section>
 
-    <!-- Highlights (quick wins for the marker) -->
+    <!-- Highlights -->
     <section id="highlights">
       <h2>Highlights</h2>
       <div class="grid cols-2">
         <div class="card">
           <h3>Robotics</h3>
           <p>Micromouse line-following & maze-solving robot; helicopter altitude control (state-space PID).</p>
-          <div class="pill-grid">
-            <span class="chip">Embedded C</span><span class="chip">PID & State-Space</span><span class="chip">Sensors</span><span class="chip">MATLAB/Simulink</span>
-          </div>
         </div>
         <div class="card">
           <h3>Conservation Engineering</h3>
           <p>Fourth-year design: sensing + housing system to protect South African penguin colonies from predators.</p>
-          <div class="pill-grid">
-            <span class="chip">Embedded Vision</span><span class="chip">Enclosure Design</span><span class="chip">Systems Thinking</span>
-          </div>
         </div>
       </div>
     </section>
@@ -147,111 +113,73 @@
     <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-
-      <!-- Micromouse -->
       <div class="card proj">
         <img src="micromouse.jpg" alt="Micromouse robot (placeholder)">
         <div>
           <h3>Micromouse Line-Following & Maze-Solving Robot</h3>
-          <p>Designed and built a micromouse robot with IR sensor array for line detection, closed-loop speed/steering control and a maze-solving algorithm (right-hand rule baseline, optimized with turn penalties). Firmware in Embedded C; chassis iterated for weight balance and sensor alignment.</p>
-          <div class="pill-grid">
-            <span class="chip">C on MCU</span><span class="chip">PWM Motor Control</span><span class="chip">IR Sensing</span><span class="chip">Algorithms</span>
-          </div>
-          <p class="meta">Artefacts: add <code>micromouse_report.pdf</code>, <code>micromouse_demo.mp4</code> to repo and link below.</p>
-          <div class="flex">
-            <a class="btn" href="micromouse_report.pdf">Report</a>
-            <a class="btn" href="micromouse_demo.mp4">Demo Video</a>
-            <a class="btn" href="#">Code (repo link)</a>
-          </div>
+          <p>Built a micromouse robot with IR sensors for line detection, closed-loop motor control, and a maze-solving algorithm. Learned embedded C and algorithm optimisation.</p>
         </div>
       </div>
-
-      <!-- Helicopter Control -->
       <div class="card proj">
         <img src="helicopter.jpg" alt="Helicopter rig (placeholder)">
         <div>
           <h3>Helicopter Altitude Control</h3>
-          <p>Modelled a small helicopter rig and implemented altitude control using state-space methods; compared with tuned PID. Built Simulink plant model, discretised controller, and deployed control loop to embedded target for real-time testing.</p>
-          <div class="pill-grid">
-            <span class="chip">MATLAB/Simulink</span><span class="chip">State-Space</span><span class="chip">PID</span><span class="chip">Real-time</span>
-          </div>
-          <div class="flex">
-            <a class="btn" href="helicopter_poster.pdf">Poster</a>
-            <a class="btn" href="helicopter_report.pdf">Report</a>
-          </div>
+          <p>Modelled and controlled a helicopter test rig, comparing PID and state-space controllers in MATLAB/Simulink. Demonstrated strong control systems understanding.</p>
         </div>
       </div>
-
-      <!-- Penguin Colony -->
       <div class="card proj">
         <img src="penguin.jpg" alt="Penguin sensing housing (placeholder)">
         <div>
           <h3>Penguin Colony Protection — Sensing & Housing System</h3>
-          <p>Co-designed a rugged sensing and protective housing system to detect predators near South African penguin nests. Focused on environmental sealing, maintainability, and sensor placement for reliable detection while minimising disturbance.</p>
-          <div class="pill-grid">
-            <span class="chip">Product Design</span><span class="chip">Enclosure IP</span><span class="chip">Edge Sensing</span><span class="chip">Teamwork</span>
-          </div>
-          <div class="flex">
-            <a class="btn" href="penguin_brief.pdf">Design Brief</a>
-            <a class="btn" href="penguin_cad.pdf">CAD Drawings</a>
-          </div>
+          <p>Designed a protective sensing housing system for South African penguin colonies to mitigate predator threats. Focused on ruggedness, reliability, and sensor integration.</p>
         </div>
       </div>
     </section>
 
-    
-
-    <!-- Experience (with photos you uploaded) -->
+    <!-- Experience (with photos) -->
     <section id="experience">
       <h2>Experience</h2>
-
       <div class="card exp">
         <div>
           <h3>Maverick International — Industry Training</h3>
           <p class="meta">30 Jun – 12 Jul 2025 • Cape Town</p>
-          <p>Wired a 3-phase, 480V, 60kVA, 60Hz control panel using Rockwell (Allen-Bradley) hardware (PLC, PSU, solid-state relays, safety circuit). Panel was tested and passed all QC checks.</p>
-          <p class="meta"><em>Supervisor: Kewan Fay (Director)</em></p>
+          <p>Wired a 3-phase, 480V, 60kVA, 60Hz control panel with Rockwell hardware. Passed QC checks.</p>
         </div>
         <img src="maverick.jpg" alt="Maverick training photo">
       </div>
-
       <div class="card exp">
         <div>
           <h3>ALC Corp — Internship</h3>
           <p class="meta">Jan – Feb 2025 • Ottery, Cape Town</p>
-          <p>Operated and repaired the hot-tack tester machines to verify the tensile strength of polymer films; designed a custom load-cell calibration tool; assisted with Delta PLC programming.</p>
+          <p>Operated hot-tack testers, built a calibration tool, and assisted with PLC ladder logic programming.</p>
         </div>
         <img src="alc.jpg" alt="ALC internship photo">
       </div>
-
       <div class="card exp">
         <div>
           <h3>IEEE GLOBECOM — Student Volunteer</h3>
           <p class="meta">Dec 2024 • CTICC, Cape Town</p>
-          <p>Supported registration and technical sessions across symposiums and tutorials for a Global IEEE Communications Conference.</p>
+          <p>Supported registration and technical sessions across symposiums and tutorials for a global conference.</p>
         </div>
         <div class="row">
           <img src="ieee1.jpg" alt="IEEE group photo">
           <img src="ieee2.jpg" alt="IEEE volunteer photo">
         </div>
       </div>
-
       <div class="card exp">
         <div>
           <h3>LIQID Medical — Internship</h3>
           <p class="meta">Nov – Dec 2023 • Foreshore, Cape Town</p>
-          <p>Designed a clasp mechanism for tensile testing of ocular implants; 3D modelling & simulation in Autodesk Inventor; prototyped with the engineering team.</p>
+          <p>Designed a clasp mechanism for ocular implant tensile testing; used Autodesk Inventor for CAD and prototyping.</p>
         </div>
         <img src="liqid.jpg" alt="LIQID internship photo">
       </div>
-
       <div class="card exp">
         <div>
           <h3>AIZATRON — Vacation Work</h3>
           <p class="meta">Jan 2022 • Mowbray, Cape Town</p>
-          <p>Breadboard circuit design and LTSpice analysis; exposure to design processes and debugging in a collaborative environment.</p>
+          <p>Breadboard circuit design and LTSpice analysis; exposure to collaborative debugging and design processes.</p>
         </div>
-        <!-- Convert your HEIC to JPG named aizatron.jpg -->
         <img src="aizatron.jpg" alt="Aizatron experience photo">
       </div>
     </section>
@@ -264,7 +192,7 @@
           <h3>Technical</h3>
           <div class="pill-grid">
             <span class="chip">Embedded C</span><span class="chip">Python</span><span class="chip">MATLAB / Simulink</span>
-            <span class="chip">PID & State-Space</span><span class="chip">PCB Debug</span><span class="chip">PLC (IEC 61131)</span>
+            <span class="chip">Control Systems</span><span class="chip">PCB Debug</span><span class="chip">PLC Programming</span>
             <span class="chip">Autodesk Inventor</span><span class="chip">SolidWorks</span><span class="chip">3D Printing</span>
           </div>
         </div>
@@ -278,17 +206,16 @@
       </div>
     </section>
 
-    <!-- Interests (gallery-ready) -->
+    <!-- Interests -->
     <section id="interests">
       <h2>Interests</h2>
-      <p class="sub">Outside the lab I keep a balanced life — movement, creativity and a little octane.</p>
+      <p class="sub">Balance outside engineering: creativity, sport and exploration.</p>
       <div class="pill-grid">
         <span class="chip">Padel</span><span class="chip">Pilates</span><span class="chip">Makeup</span>
         <span class="chip">Cooking (Oriental & Middle Eastern)</span><span class="chip">Painting</span>
         <span class="chip">Reading</span><span class="chip">Hiking</span><span class="chip">Running</span>
         <span class="chip">Travelling</span><span class="chip">Car Drifting</span>
       </div>
-      <p class="meta">Add photos later as <code>interest1.jpg</code>, <code>interest2.jpg</code>… and we’ll pop them into a gallery.</p>
     </section>
 
     <!-- Contact -->
@@ -303,7 +230,6 @@
         <div class="card">
           <h3>Download</h3>
           <p><a class="btn" href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></p>
-          <p class="meta">Upload <code>cv.pdf</code> to enable.</p>
         </div>
       </div>
     </section>
@@ -316,28 +242,16 @@
   <button id="topBtn" aria-label="Back to top">↑</button>
 
   <script>
-    // Year + smooth anchor + back-to-top
     document.getElementById('year').textContent = new Date().getFullYear();
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id=a.getAttribute('href').slice(1); const el=document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
       });
     });
     const topBtn=document.getElementById('topBtn');
     window.addEventListener('scroll',()=>{ topBtn.style.display = window.scrollY>400?'block':'none'; });
     topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
   </script>
-
-  <!--
-    Marking helper (meets rubric):
-    - Creativity & design: custom pink+navy theme, cards, chips, sticky nav, smooth scroll, back-to-top.
-    - Content & interest: clear About + Highlights + narrative project writeups.
-    - Images & graphics: header photo + experience photos; project placeholders ready.
-    - Layout: grid/card structure; responsive; accessible color contrast.
-    - Navigation: sticky top nav with anchors; back-to-top button; clear sections.
-    - Artefacts: dedicated section with links (activate by uploading exact filenames).
-    - Writing: concise, proofread, professional.
-  -->
 </body>
 </html>
