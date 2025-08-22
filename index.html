@@ -17,6 +17,7 @@
       --pink:#ff4da6;         /* primary accent */
       --pink-2:#ff7fbe;       /* lighter accent */
       --ring:rgba(255,77,166,.22);
+      --mx:0px; --my:0px;     /* parallax variables */
     }
 
     /* ===== Reset & Base ===== */
@@ -36,6 +37,13 @@
     a:hover{opacity:.92}
     img{max-width:100%;height:auto;display:block}
 
+    /* ===== Progress bar (top) ===== */
+    #progress{
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background:linear-gradient(90deg, var(--pink), var(--pink-2));
+      z-index:60; box-shadow:0 0 12px var(--ring);
+    }
+
     /* ===== Animated background blobs ===== */
     .bg{
       position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden;
@@ -47,16 +55,14 @@
       opacity:.16; border-radius:50%;
       animation:float 28s ease-in-out infinite alternate;
     }
-    .bg::after{
-      left:auto; right:-15vmax; top:20vh; transform:scale(.9) rotate(20deg);
-      animation-duration: 34s;
-    }
+    .bg::before{ transform:translate(var(--mx), var(--my)) }
+    .bg::after{  right:-15vmax; top:20vh; transform:translate(calc(var(--mx)*.6), calc(var(--my)*.6)) scale(.9) rotate(20deg); animation-duration:34s; }
     @keyframes float{
       0%{transform:translate(-8vmax,-4vmax) scale(1)}
       100%{transform:translate(6vmax,4vmax) scale(1.05)}
     }
     @media (prefers-reduced-motion: reduce){
-      .bg::before,.bg::after{animation:none}
+      .bg::before,.bg::after{animation:none; transform:none}
     }
 
     /* ===== Layout ===== */
@@ -88,18 +94,37 @@
       backdrop-filter:blur(8px);
     }
     .brand{display:flex;align-items:center;gap:14px}
-    .pfp{width:72px;height:72px;border-radius:50%;border:3px solid var(--pink);object-fit:cover; box-shadow:0 0 0 3px rgba(255,77,166,.08)}
+
+    /* Bigger profile photo */
+    .pfp{
+      width:96px; height:96px; border-radius:50%;
+      border:3px solid var(--pink); object-fit:cover;
+      box-shadow:0 0 0 3px rgba(255,77,166,.08);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .pfp:hover{ transform:scale(1.03); box-shadow:0 10px 22px var(--ring); }
+    @media (max-width:520px){ .pfp{ width:80px; height:80px; } }
+
     .title{margin:0;color:var(--pink);font-weight:800;font-size:26px}
-    .tag{margin:0;color:var(--ink)}
+    .tag{margin:0;color:#e9e5ee}
 
     nav.nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     nav.nav a{
+      position:relative;
       padding:8px 12px;background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       border-radius:999px;color:#ffe6f7;font-weight:600;
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
     nav.nav a:hover{transform:translateY(-1px); box-shadow:0 6px 14px var(--ring); background:rgba(255,77,166,.08)}
+    /* Animated underline */
+    nav.nav a::after{
+      content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px;
+      background:linear-gradient(90deg,var(--pink),var(--pink-2));
+      transform:scaleX(0); transform-origin:left; transition:transform .22s ease;
+      border-radius:2px; opacity:.9;
+    }
+    nav.nav a:hover::after, nav.nav a.active::after{ transform:scaleX(1); }
 
     /* ===== Utilities ===== */
     .flex{display:flex;gap:16px;flex-wrap:wrap}
@@ -113,10 +138,14 @@
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
     .btn:hover{background:rgba(255,77,166,.12); transform:translateY(-1px); box-shadow:0 8px 18px var(--ring)}
+    /* Focus glow for accessibility */
+    .btn:focus-visible, nav.nav a:focus-visible{
+      outline:none; box-shadow:0 0 0 3px rgba(255,77,166,.35), 0 8px 18px var(--ring);
+    }
 
     .chip{display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:6px 10px;margin:4px;color:#f7f0f5}
 
-    .card{background:rgba(15,12,22,.9);border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .18s ease, transform .18s ease}
+    .card{background:rgba(15,12,22,.9);border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .18s ease, transform .18s ease; transform-style:preserve-3d;}
     .card:hover{box-shadow:0 10px 26px var(--ring); transform:translateY(-1px)}
     .card h3{margin:0 0 6px;font-size:18px;color:#ffd3ea}
     .meta{color:var(--muted);font-size:13.5px}
@@ -130,6 +159,10 @@
     /* ===== Experience ===== */
     .exp{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
     .exp img{max-width:220px;border-radius:10px;border:1px solid rgba(255,255,255,.1); box-shadow:0 8px 18px rgba(0,0,0,.25)}
+    /* Gentle zoom on images */
+    .exp img, .row img{ transition:transform .25s ease, box-shadow .25s ease; will-change: transform; }
+    .exp img:hover, .row img:hover{ transform:scale(1.06); box-shadow:0 14px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.08) inset; }
+    @media (prefers-reduced-motion: reduce){ .exp img, .row img{ transition:none } }
 
     /* ===== Footer & back-to-top ===== */
     footer{color:var(--muted);text-align:center;padding:28px 0}
@@ -145,6 +178,9 @@
   </style>
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div id="progress"></div>
+
   <!-- Soft animated background -->
   <div class="bg"></div>
 
@@ -367,21 +403,62 @@
       });
     });
 
-    // Back-to-top & scroll reveal
-    const topBtn=document.getElementById('topBtn');
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Back-to-top & scroll reveal
+    const topBtn=document.getElementById('topBtn');
     window.addEventListener('scroll',()=>{
       topBtn.style.display = window.scrollY>400?'block':'none';
-      if(prefersReduced) return;
-      document.querySelectorAll('.reveal').forEach(el=>{
-        const rect=el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 80) el.classList.add('show');
-      });
+      if(!prefersReduced){
+        document.querySelectorAll('.reveal').forEach(el=>{
+          const rect=el.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 80) el.classList.add('show');
+        });
+      }
+      // Progress bar width
+      const sc = document.documentElement.scrollTop || document.body.scrollTop;
+      const h  = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progress').style.width = (sc / h) * 100 + '%';
     });
     topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
-    // Trigger reveal on load
-    window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new Event('scroll')); // trigger reveal/progress on load
+
+    // Parallax for background blobs
+    if (!prefersReduced) {
+      window.addEventListener('mousemove', (e)=>{
+        const x = (e.clientX / window.innerWidth  - 0.5) * 24; // -12..+12px
+        const y = (e.clientY / window.innerHeight - 0.5) * 18; // -9..+9px
+        document.documentElement.style.setProperty('--mx', x.toFixed(1)+'px');
+        document.documentElement.style.setProperty('--my', y.toFixed(1)+'px');
+      });
+    }
+
+    // Subtle tilt on cards
+    if (!prefersReduced) {
+      document.querySelectorAll('.card').forEach(card=>{
+        card.addEventListener('mousemove', (e)=>{
+          const r = card.getBoundingClientRect();
+          const dx = (e.clientX - r.left) / r.width  - 0.5;
+          const dy = (e.clientY - r.top)  / r.height - 0.5;
+          card.style.transform = `rotateX(${(-dy*2).toFixed(2)}deg) rotateY(${(dx*2).toFixed(2)}deg) translateY(-1px)`;
+        });
+        card.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
+      });
+    }
+
+    // Nav active underline based on scroll position
+    const links = Array.from(document.querySelectorAll('nav.nav a'));
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActive = () => {
+      const y = window.scrollY + 100;
+      let idx = 0;
+      sections.forEach((sec,i)=>{
+        if (sec.offsetTop <= y) idx = i;
+      });
+      links.forEach((a,i)=> a.classList.toggle('active', i===idx));
+    };
+    setActive();
+    window.addEventListener('scroll', setActive);
   </script>
 </body>
 </html>
