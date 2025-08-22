@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Imaan Shaik — Mechatronics | Portfolio</title>
-  <meta name="description" content="The engineering e-portfolio of Imaan Shaik: projects, artefacts, experience, skills, and interests." />
+  <meta name="description" content="The engineering e-portfolio of Imaan Shaik: projects, experience, skills, and interests." />
   <style>
     :root{
       --navy-900:#0a0f1f;
@@ -27,10 +27,12 @@
     a{color:var(--pink); text-decoration:none}
     a:hover{opacity:.92}
     img{max-width:100%; height:auto; display:block}
+
     .container{max-width:1000px;margin:0 auto;padding:22px}
     section{background:var(--card); border:1px solid #222a52; border-radius:14px; padding:22px; margin:24px 0; box-shadow:0 6px 24px var(--ring)}
     section h2{margin:0 0 10px; color:var(--pink); font-size:22px}
     .sub{color:var(--muted); margin-top:-2px}
+
     .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--navy-800),rgba(17,24,48,.6)); border-bottom:1px solid #1c2446; backdrop-filter:blur(6px)}
     .brand{display:flex;align-items:center;gap:14px}
     .pfp{width:72px;height:72px;border-radius:50%;border:3px solid var(--pink);object-fit:cover}
@@ -38,22 +40,30 @@
     .tag{margin:0;color:#c9cedd}
     nav.nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     nav.nav a{padding:8px 12px;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;color:#f8eaf3;font-weight:600}
+
     .flex{display:flex;gap:16px;flex-wrap:wrap}
     .grid{display:grid;gap:14px}
     .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:860px){.cols-2{grid-template-columns:1fr}}
+
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--pink);color:var(--pink)}
     .btn:hover{background:rgba(255,77,166,.12)}
     .chip{display:inline-block;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;padding:6px 10px;margin:4px;color:#f7f0f5}
+
     .card{background:#0f1632;border:1px solid #222a52;border-radius:12px;padding:14px}
     .card h3{margin:0 0 6px;font-size:18px;color:#ffd3ea}
     .meta{color:var(--muted);font-size:13.5px}
     .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-    .proj{display:grid;grid-template-columns:180px 1fr;gap:14px;align-items:start}
-    @media (max-width:720px){.proj{grid-template-columns:1fr}}
-    .proj img{border-radius:10px;border:2px solid #24315f}
+
+    /* Projects: text-only cards (no image column) */
+    .proj{display:block;padding:18px;text-align:center}
+    .proj h3{margin:0 0 8px;font-size:18px;color:#ffd3ea}
+    .proj p{margin:0 auto;max-width:600px;line-height:1.6}
+
+    /* Experience cards with picture on the right */
     .exp{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
     .exp img{max-width:220px;border-radius:10px;border:2px solid #24315f}
+
     .pill-grid{display:flex;flex-wrap:wrap;gap:8px}
     footer{color:var(--muted);text-align:center;padding:28px 0}
     #topBtn{position:fixed;right:16px;bottom:16px;border-radius:999px;border:1px solid var(--pink);background:var(--navy-800);color:var(--pink);padding:10px 12px;cursor:pointer;display:none}
@@ -95,152 +105,122 @@
       </div>
     </section>
 
-<!-- Highlights -->
-<section id="highlights">
-  <h2>Highlights</h2>
-  <div class="grid cols-2">
-    <div class="card">
-      <h3>Robotics</h3>
-      <p>
-        I gravitate to systems that sense, decide, and act.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Micromouse project: IR sensor array, closed-loop motor control, right-hand rule baseline with turn-penalty refinements.</li>
-        <li>Helicopter altitude control project: plant modelling in MATLAB/Simulink, state-space vs tuned PID, real-time implementation trade-offs.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Conservation Engineering</h3>
-      <p>
-        Engineering with impact: in my fourth-year design group I designed a rugged sensing and
-        housing system to deter predators at South African penguin colonies. 
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Focus areas: enclosure design, sensor placement, and maintenance in harsh coastal conditions.</li>
-        <li>Outcome: a practical concept that prioritises reliability and minimal disturbance to the wildlife.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-      <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="card proj">
-        <div>
-          <h3>Micromouse Line-Following & Maze-Solving Robot</h3>
-          <p>Built a micromouse robot with IR sensors for line detection, closed-loop motor control, and a maze-solving algorithm. Learned embedded C and algorithm optimisation.</p>
+    <!-- Highlights -->
+    <section id="highlights">
+      <h2>Highlights</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Robotics</h3>
+          <p>I gravitate to systems that sense, decide, and act.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Micromouse project: IR sensor array, closed-loop motor control, right-hand rule baseline with turn-penalty refinements.</li>
+            <li>Helicopter altitude control project: plant modelling in MATLAB/Simulink, state-space vs tuned PID, real-time implementation trade-offs.</li>
+          </ul>
         </div>
-      </div>
-      <div class="card proj">
-        <div>
-          <h3>Helicopter Altitude Control</h3>
-          <p>Modelled and controlled a helicopter test rig, comparing PID and state-space controllers in MATLAB/Simulink. Demonstrated strong control systems understanding.</p>
-        </div>
-      </div>
-      <div class="card proj">
-        <div>
-          <h3>Penguin Colony Protection — Sensing & Housing System</h3>
-          <p>Designed a protective sensing housing system for South African penguin colonies to mitigate predator threats. Focused on ruggedness, reliability, and sensor integration.</p>
+
+        <div class="card">
+          <h3>Conservation Engineering</h3>
+          <p>Engineering with impact: in my fourth-year design group I designed a rugged sensing and housing system to deter predators at South African penguin colonies.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Focus areas: enclosure design, sensor placement, and maintenance in harsh coastal conditions.</li>
+            <li>Outcome: a practical concept that prioritises reliability and minimal disturbance to the wildlife.</li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
 
-<!-- Experience (with photos) -->
-<section id="experience">
-  <h2>Experience</h2>
+      <div class="card proj">
+        <h3>Micromouse Line-Following & Maze-Solving Robot</h3>
+        <p>Built a micromouse robot with IR sensors for line detection, closed-loop motor control, and a maze-solving algorithm. Learned embedded C and algorithm optimisation.</p>
+      </div>
 
-  <div class="card exp">
-    <div>
-      <h3>Maverick International — Industry Training</h3>
-      <p class="meta">30 Jun – 12 Jul 2025 • Cape Town</p>
-      <p>
-        Hands-on electrical build in a real production environment. I wired a three-phase control
-        panel (480 V, 60 kVA, 60 Hz) using Rockwell/Allen-Bradley components and followed safety and
-        QC procedures end-to-end.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Panel layout, ferruling, trunking, and clean routing for diagnostics.</li>
-        <li>Integrated PLC, power supply, solid-state relays, and safety circuit; panel passed QC checks.</li>
-      </ul>
-    </div>
-    <img src="maverick.jpg" alt="Maverick training photo">
-  </div>
+      <div class="card proj">
+        <h3>Helicopter Altitude Control</h3>
+        <p>Modelled and controlled a helicopter test rig, comparing PID and state-space controllers in MATLAB/Simulink. Demonstrated strong control systems understanding.</p>
+      </div>
 
-  <div class="card exp">
-    <div>
-      <h3>ALC Corp — Internship</h3>
-      <p class="meta">Jan – Feb 2025 • Ottery, Cape Town</p>
-      <p>
-        Worked on packaging-line testing. I operated hot-tack testers and diagnosed a
-        calibration drift issue. I designed a simple tool that made accurate load-cell calibration
-        for the machine.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Improved measurement reliability after calibration tool introduction.</li>
-        <li>Assisted with Delta PLC ladder logic.</li>
-      </ul>
-    </div>
-    <img src="alc.jpg" alt="ALC internship photo">
-  </div>
+      <div class="card proj">
+        <h3>Penguin Colony Protection — Sensing & Housing System</h3>
+        <p>Designed a protective sensing housing system for South African penguin colonies to mitigate predator threats. Focused on ruggedness, reliability, and sensor integration.</p>
+      </div>
+    </section>
 
-  <div class="card exp">
-    <div>
-      <h3>IEEE GLOBECOM — Student Volunteer</h3>
-      <p class="meta">Dec 2024 • CTICC, Cape Town</p>
-      <p>
-        Part of the volunteer team for a global communications conference. I supported registration,
-        time-keeping and technical session setup — fast-paced operations that sharpened my
-        organisation and people skills.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Exposure to current research across wireless, networks, and systems.</li>
-        <li>Worked across symposiums, workshops, and tutorials with international delegates.</li>
-      </ul>
-    </div>
-    <div class="row">
-      <img src="ieee1.jpg" alt="IEEE group photo">
-      <img src="ieee2.jpg" alt="IEEE volunteer photo">
-    </div>
-  </div>
+    <!-- Experience (with photos) -->
+    <section id="experience">
+      <h2>Experience</h2>
 
-  <div class="card exp">
-    <div>
-      <h3>LIQID Medical — Internship</h3>
-      <p class="meta">Nov – Dec 2023 • Foreshore, Cape Town</p>
-      <p>
-        Designed and prototyped a clasp mechanism for tensile testing of ocular implants. From CAD
-        in Autodesk Inventor to a working prototype, I iterated with the engineers to reach a robust,
-        easy-to-use test fixture.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Applied mechanical design principles with tight tolerances and repeatability in mind.</li>
-        <li>Collaborated across design and test to refine the mechanism.</li>
-      </ul>
-    </div>
-    <img src="liqid.jpg" alt="LIQID internship photo">
-  </div>
+      <div class="card exp">
+        <div>
+          <h3>Maverick International — Industry Training</h3>
+          <p class="meta">30 Jun – 12 Jul 2025 • Cape Town</p>
+          <p>Hands-on electrical build in a real production environment. I wired a three-phase control panel (480 V, 60 kVA, 60 Hz) using Rockwell/Allen-Bradley components and followed safety and QC procedures end-to-end.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Panel layout, ferruling, trunking, and clean routing for diagnostics.</li>
+            <li>Integrated PLC, power supply, solid-state relays, and safety circuit; panel passed QC checks.</li>
+          </ul>
+        </div>
+        <img src="maverick.jpg" alt="Maverick training photo">
+      </div>
 
-  <div class="card exp">
-    <div>
-      <h3>AIZATRON — Vacation Work</h3>
-      <p class="meta">Jan 2022 • Mowbray, Cape Town</p>
-      <p>
-        Early exposure to electronics and embedded work. I built and debugged breadboard circuits,
-        and used LTSpice to simulate and understand behaviour before touching hardware.
-      </p>
-      <ul class="meta" style="margin:8px 0 0 18px">
-        <li>Developed a methodical approach to fault-finding and documentation.</li>
-        <li>Got comfortable moving between schematics, simulation and the bench.</li>
-      </ul>
-    </div>
-    <img src="aizatron.jpg" alt="Aizatron experience photo">
-  </div>
-</section>
+      <div class="card exp">
+        <div>
+          <h3>ALC Corp — Internship</h3>
+          <p class="meta">Jan – Feb 2025 • Ottery, Cape Town</p>
+          <p>Worked on packaging-line testing. I operated hot-tack testers and diagnosed a calibration drift issue. I designed a simple tool that made accurate load-cell calibration for the machine.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Improved measurement reliability after calibration tool introduction.</li>
+            <li>Assisted with Delta PLC ladder logic.</li>
+          </ul>
+        </div>
+        <img src="alc.jpg" alt="ALC internship photo">
+      </div>
 
+      <div class="card exp">
+        <div>
+          <h3>IEEE GLOBECOM — Student Volunteer</h3>
+          <p class="meta">Dec 2024 • CTICC, Cape Town</p>
+          <p>Part of the volunteer team for a global communications conference. I supported registration, time-keeping and technical session setup — fast-paced operations that sharpened my organisation and people skills.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Exposure to current research across wireless, networks, and systems.</li>
+            <li>Worked across symposiums, workshops, and tutorials with international delegates.</li>
+          </ul>
+        </div>
+        <div class="row">
+          <img src="ieee1.jpg" alt="IEEE group photo">
+          <img src="ieee2.jpg" alt="IEEE volunteer photo">
+        </div>
+      </div>
+
+      <div class="card exp">
+        <div>
+          <h3>LIQID Medical — Internship</h3>
+          <p class="meta">Nov – Dec 2023 • Foreshore, Cape Town</p>
+          <p>Designed and prototyped a clasp mechanism for tensile testing of ocular implants. From CAD in Autodesk Inventor to a working prototype, I iterated with the engineers to reach a robust, easy-to-use test fixture.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Applied mechanical design principles with tight tolerances and repeatability in mind.</li>
+            <li>Collaborated across design and test to refine the mechanism.</li>
+          </ul>
+        </div>
+        <img src="liqid.jpg" alt="LIQID internship photo">
+      </div>
+
+      <div class="card exp">
+        <div>
+          <h3>AIZATRON — Vacation Work</h3>
+          <p class="meta">Jan 2022 • Mowbray, Cape Town</p>
+          <p>Early exposure to electronics and embedded work. I built and debugged breadboard circuits, and used LTSpice to simulate and understand behaviour before touching hardware.</p>
+          <ul class="meta" style="margin:8px 0 0 18px">
+            <li>Developed a methodical approach to fault-finding and documentation.</li>
+            <li>Got comfortable moving between schematics, simulation and the bench.</li>
+          </ul>
+        </div>
+        <img src="aizatron.jpg" alt="Aizatron experience photo">
+      </div>
+    </section>
 
     <!-- Skills -->
     <section id="skills">
