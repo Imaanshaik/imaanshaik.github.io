@@ -6,70 +6,148 @@
   <title>Imaan Shaik — Mechatronics | Portfolio</title>
   <meta name="description" content="The engineering e-portfolio of Imaan Shaik: projects, experience, skills, and interests." />
   <style>
+    /* ===== Palette: pink-forward, softer base ===== */
     :root{
-      --navy-900:#0a0f1f;
-      --navy-800:#111830;
-      --navy-700:#141827;
-      --ink:#c9cedd;
-      --muted:#aab0c2;
-      --pink:#ff4da6;
-      --ring: rgba(255,77,166,.25);
-      --card: #141827;
-      --chip:#1e294f;
-      --chip-br:#2b3560;
+      --base-900:#0f0e13;     /* charcoal */
+      --base-800:#17131f;     /* deep plum */
+      --card:#1a1624cc;       /* translucent card */
+      --line:#2b2240;         /* borders */
+      --ink:#e9e5ee;          /* main text */
+      --muted:#bfb5cc;        /* secondary text */
+      --pink:#ff4da6;         /* primary accent */
+      --pink-2:#ff7fbe;       /* lighter accent */
+      --ring:rgba(255,77,166,.22);
     }
+
+    /* ===== Reset & Base ===== */
     *{box-sizing:border-box}
     html,body{margin:0}
     body{
-      font: 15.5px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:#ffe6f7; background:var(--navy-900);
+      font:15.8px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 600px at 10% -10%, #1d162e 0%, transparent 60%),
+                  radial-gradient(1200px 700px at 110% 10%, #1b1430 0%, transparent 55%),
+                  var(--base-900);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
-    a{color:var(--pink); text-decoration:none}
+    a{color:var(--pink);text-decoration:none}
     a:hover{opacity:.92}
-    img{max-width:100%; height:auto; display:block}
+    img{max-width:100%;height:auto;display:block}
 
+    /* ===== Animated background blobs ===== */
+    .bg{
+      position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden;
+    }
+    .bg::before,.bg::after{
+      content:""; position:absolute; width:60vmax; height:60vmax; filter:blur(80px);
+      background:radial-gradient(circle at 30% 30%, var(--pink) 0%, rgba(255,77,166,0.0) 60%),
+                 radial-gradient(circle at 70% 70%, #b79dff 0%, rgba(183,157,255,0.0) 60%);
+      opacity:.16; border-radius:50%;
+      animation:float 28s ease-in-out infinite alternate;
+    }
+    .bg::after{
+      left:auto; right:-15vmax; top:20vh; transform:scale(.9) rotate(20deg);
+      animation-duration: 34s;
+    }
+    @keyframes float{
+      0%{transform:translate(-8vmax,-4vmax) scale(1)}
+      100%{transform:translate(6vmax,4vmax) scale(1.05)}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .bg::before,.bg::after{animation:none}
+    }
+
+    /* ===== Layout ===== */
     .container{max-width:1000px;margin:0 auto;padding:22px}
-    section{background:var(--card); border:1px solid #222a52; border-radius:14px; padding:22px; margin:24px 0; box-shadow:0 6px 24px var(--ring)}
-    section h2{margin:0 0 10px; color:var(--pink); font-size:22px}
+    section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:22px;
+      margin:24px 0;
+      box-shadow:0 10px 30px var(--ring), inset 0 0 0 1px rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px);
+    }
+    section h2{
+      margin:0 0 10px; color:var(--pink); font-size:22px; letter-spacing:.2px; position:relative;
+    }
+    section h2::after{
+      content:""; position:absolute; left:0; bottom:-6px; width:56px; height:2px;
+      background:linear-gradient(90deg,var(--pink),transparent);
+      border-radius:2px;
+    }
     .sub{color:var(--muted); margin-top:-2px}
 
-    .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--navy-800),rgba(17,24,48,.6)); border-bottom:1px solid #1c2446; backdrop-filter:blur(6px)}
+    /* ===== Topbar ===== */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:linear-gradient(180deg, rgba(17,13,26,.85), rgba(17,13,26,.55));
+      border-bottom:1px solid rgba(255,255,255,.04);
+      backdrop-filter:blur(8px);
+    }
     .brand{display:flex;align-items:center;gap:14px}
-    .pfp{width:72px;height:72px;border-radius:50%;border:3px solid var(--pink);object-fit:cover}
+    .pfp{width:72px;height:72px;border-radius:50%;border:3px solid var(--pink);object-fit:cover; box-shadow:0 0 0 3px rgba(255,77,166,.08)}
     .title{margin:0;color:var(--pink);font-weight:800;font-size:26px}
-    .tag{margin:0;color:#c9cedd}
-    nav.nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-    nav.nav a{padding:8px 12px;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;color:#f8eaf3;font-weight:600}
+    .tag{margin:0;color:var(--ink)}
 
+    nav.nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    nav.nav a{
+      padding:8px 12px;background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:999px;color:#ffe6f7;font-weight:600;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    nav.nav a:hover{transform:translateY(-1px); box-shadow:0 6px 14px var(--ring); background:rgba(255,77,166,.08)}
+
+    /* ===== Utilities ===== */
     .flex{display:flex;gap:16px;flex-wrap:wrap}
     .grid{display:grid;gap:14px}
     .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
     @media (max-width:860px){.cols-2{grid-template-columns:1fr}}
 
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--pink);color:var(--pink)}
-    .btn:hover{background:rgba(255,77,166,.12)}
-    .chip{display:inline-block;background:var(--chip);border:1px solid var(--chip-br);border-radius:999px;padding:6px 10px;margin:4px;color:#f7f0f5}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;
+      border:1px solid var(--pink);color:var(--pink);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover{background:rgba(255,77,166,.12); transform:translateY(-1px); box-shadow:0 8px 18px var(--ring)}
 
-    .card{background:#0f1632;border:1px solid #222a52;border-radius:12px;padding:14px}
+    .chip{display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:6px 10px;margin:4px;color:#f7f0f5}
+
+    .card{background:rgba(15,12,22,.9);border:1px solid var(--line);border-radius:12px;padding:14px;transition:box-shadow .18s ease, transform .18s ease}
+    .card:hover{box-shadow:0 10px 26px var(--ring); transform:translateY(-1px)}
     .card h3{margin:0 0 6px;font-size:18px;color:#ffd3ea}
     .meta{color:var(--muted);font-size:13.5px}
     .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
 
-    /* Projects: text-only cards (no image column) */
+    /* ===== Projects: text-only cards ===== */
     .proj{display:block;padding:18px;text-align:center}
     .proj h3{margin:0 0 8px;font-size:18px;color:#ffd3ea}
-    .proj p{margin:0 auto;max-width:600px;line-height:1.6}
+    .proj p{margin:0 auto;max-width:620px;line-height:1.65}
 
-    /* Experience cards with picture on the right */
+    /* ===== Experience ===== */
     .exp{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
-    .exp img{max-width:220px;border-radius:10px;border:2px solid #24315f}
+    .exp img{max-width:220px;border-radius:10px;border:1px solid rgba(255,255,255,.1); box-shadow:0 8px 18px rgba(0,0,0,.25)}
 
-    .pill-grid{display:flex;flex-wrap:wrap;gap:8px}
+    /* ===== Footer & back-to-top ===== */
     footer{color:var(--muted);text-align:center;padding:28px 0}
-    #topBtn{position:fixed;right:16px;bottom:16px;border-radius:999px;border:1px solid var(--pink);background:var(--navy-800);color:var(--pink);padding:10px 12px;cursor:pointer;display:none}
+    #topBtn{position:fixed;right:16px;bottom:16px;border-radius:999px;border:1px solid var(--pink);background:rgba(20,16,28,.9);color:var(--pink);padding:10px 12px;cursor:pointer;display:none}
+
+    /* ===== Subtle reveal on scroll ===== */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1; transform:none}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1; transform:none}
+      nav.nav a,.btn,.card{transition:none}
+    }
   </style>
 </head>
 <body>
+  <!-- Soft animated background -->
+  <div class="bg"></div>
+
   <!-- Top / Nav -->
   <div class="topbar">
     <div class="container flex">
@@ -94,7 +172,7 @@
 
   <main class="container">
     <!-- About -->
-    <section id="about">
+    <section id="about" class="reveal">
       <h2>About</h2>
       <p class="sub">Redefining engineering with precision, creativity, and unapologetic femininity.</p>
       <p>I'm a final-year BSc(Eng) Mechatronics student with a passion for robotics, control and industrial automation. I communicate clearly, pick things up fast, and enjoy collaborating across mechanical, electrical and software boundaries.</p>
@@ -106,7 +184,7 @@
     </section>
 
     <!-- Highlights -->
-    <section id="highlights">
+    <section id="highlights" class="reveal">
       <h2>Highlights</h2>
       <div class="grid cols-2">
         <div class="card">
@@ -130,7 +208,7 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects">
+    <section id="projects" class="reveal">
       <h2>Projects</h2>
 
       <div class="card proj">
@@ -149,8 +227,8 @@
       </div>
     </section>
 
-    <!-- Experience (with photos) -->
-    <section id="experience">
+    <!-- Experience -->
+    <section id="experience" class="reveal">
       <h2>Experience</h2>
 
       <div class="card exp">
@@ -223,7 +301,7 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" class="reveal">
       <h2>Skills</h2>
       <div class="grid cols-2">
         <div class="card">
@@ -245,7 +323,7 @@
     </section>
 
     <!-- Interests -->
-    <section id="interests">
+    <section id="interests" class="reveal">
       <h2>Interests</h2>
       <p class="sub">Balance outside engineering: creativity, sport and exploration.</p>
       <div class="pill-grid">
@@ -257,7 +335,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" class="reveal">
       <h2>Contact</h2>
       <div class="grid cols-2">
         <div class="card">
@@ -280,16 +358,30 @@
   <button id="topBtn" aria-label="Back to top">↑</button>
 
   <script>
+    // Year + smooth anchor
     document.getElementById('year').textContent = new Date().getFullYear();
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
-        const id=a.getAttribute('href').slice(1); const el=document.getElementById(id);
+        const id=a.getAttribute('href').slice(1), el=document.getElementById(id);
         if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
       });
     });
+
+    // Back-to-top & scroll reveal
     const topBtn=document.getElementById('topBtn');
-    window.addEventListener('scroll',()=>{ topBtn.style.display = window.scrollY>400?'block':'none'; });
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.addEventListener('scroll',()=>{
+      topBtn.style.display = window.scrollY>400?'block':'none';
+      if(prefersReduced) return;
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const rect=el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 80) el.classList.add('show');
+      });
+    });
     topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+    // Trigger reveal on load
+    window.dispatchEvent(new Event('scroll'));
   </script>
 </body>
 </html>
